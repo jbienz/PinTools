@@ -1,0 +1,116 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" 
+        xmlns:PinTools_ViewModels="clr-namespace:PinTools.ViewModels" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d" 
+        x:Class="PinTools.Views.TablesWindow"
+        Title="Tables" Height="600" Width="800">
+	<Window.Resources>
+		<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		<DataGridLength x:Key="CheckColumnWidth">60</DataGridLength>
+		<System:Double x:Key="ButtonWidth">100</System:Double>
+		<Thickness x:Key="ButtonMargin">20,0,0,0</Thickness>
+		<DataTemplate x:Key="UltraVPTemplate">
+			<Grid>
+				<CheckBox IsChecked="{Binding UltraVPFound}" IsEnabled="{Binding UltraVPCompatible}" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" />
+			</Grid>
+		</DataTemplate>
+		<DataTemplate x:Key="CompleteTemplate">
+			<Grid>
+				<CheckBox IsChecked="{Binding IsComplete}" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5" >
+					<CheckBox.LayoutTransform>
+						<TransformGroup>
+							<ScaleTransform ScaleX="2" ScaleY="2"/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</CheckBox.LayoutTransform>
+				</CheckBox>
+			</Grid>
+		</DataTemplate>
+		<SolidColorBrush x:Key="{x:Static DataGrid.FocusBorderBrushKey}" Color="#FF000000"/>
+		<Style x:Key="LeftMiddleCellStyle" TargetType="{x:Type DataGridCell}">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type DataGridCell}">
+						<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+							<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<Trigger Property="IsSelected" Value="True">
+					<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+					<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+					<Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+				</Trigger>
+				<Trigger Property="IsKeyboardFocusWithin" Value="True">
+					<Setter Property="BorderBrush" Value="{DynamicResource {x:Static DataGrid.FocusBorderBrushKey}}"/>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+		<Style x:Key="CenterMidleCellStyle" TargetType="{x:Type DataGridCell}">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type DataGridCell}">
+						<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+							<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<Trigger Property="IsSelected" Value="True">
+					<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+					<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+					<Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+				</Trigger>
+				<Trigger Property="IsKeyboardFocusWithin" Value="True">
+					<Setter Property="BorderBrush" Value="{DynamicResource {x:Static DataGrid.FocusBorderBrushKey}}"/>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+	</Window.Resources>
+	<Window.DataContext>
+		<PinTools_ViewModels:TablesVM/>
+	</Window.DataContext>
+    <Grid x:Name="LayoutRoot">
+    	<Grid.RowDefinitions>
+    		<RowDefinition/>
+    		<RowDefinition Height="40"/>
+    	</Grid.RowDefinitions>
+    	<DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False">
+    		<DataGrid.Columns>
+                <DataGridCheckBoxColumn Binding="{Binding IsSelected, Mode=TwoWay}" Width="20"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="200" IsReadOnly="True" CellStyle="{DynamicResource LeftMiddleCellStyle}"/>
+    			<DataGridTextColumn Binding="{Binding Platform}" Header="Platform" MinWidth="90"/>
+    			<DataGridTemplateColumn Header="Complete" CellTemplate="{StaticResource CompleteTemplate}" IsReadOnly="True" Width="70"/>
+                <DataGridCheckBoxColumn Binding="{Binding WheelImageFound}" Header="Wheel" IsReadOnly="True" Width="{StaticResource CheckColumnWidth}"/>
+                <DataGridCheckBoxColumn Binding="{Binding BackglassImageFound}" Header="Backglass" IsReadOnly="True" Width="{StaticResource CheckColumnWidth}"/>
+                <DataGridCheckBoxColumn Binding="{Binding TableImageFound}" Header="Image" IsReadOnly="True" Width="{StaticResource CheckColumnWidth}" CellStyle="{DynamicResource CenterMidleCellStyle}"/>
+                <DataGridCheckBoxColumn Binding="{Binding TableVideoFound}" Header="Video" IsReadOnly="True" Width="{StaticResource CheckColumnWidth}"/>
+    			<DataGridTemplateColumn Header="Ultra VP" Width="{StaticResource CheckColumnWidth}" CellTemplate="{StaticResource UltraVPTemplate}" IsReadOnly="True"/>
+    		</DataGrid.Columns>
+    	</DataGrid>
+        <StackPanel x:Name="SelectStack" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Margin="20,0,0,0">
+            <Button Content="None" Width="{StaticResource ButtonWidth}" Command="{Binding SelectNoneCommand, Mode=OneWay}"/>
+            <Button Content="All" Width="{StaticResource ButtonWidth}" Command="{Binding SelectAllCommand}" Margin="{StaticResource ButtonMargin}"/>
+            <Button Content="Complete" Width="{StaticResource ButtonWidth}" Command="{Binding SelectCompleteCommand}" Margin="{StaticResource ButtonMargin}"/>
+        </StackPanel>
+        <StackPanel x:Name="DataStack" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,0,20,0">
+    		<Button Content="Refresh" Width="{StaticResource ButtonWidth}" Command="{Binding RefreshCommand, Mode=OneWay}"/>
+    		<Button Content="Export DB" Width="{StaticResource ButtonWidth}" Command="{Binding ExportCommand}" Margin="{StaticResource ButtonMargin}"/>
+    	</StackPanel>
+    </Grid>
+</Window>

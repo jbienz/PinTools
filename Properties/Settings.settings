@@ -1,0 +1,75 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PinTools.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UltraVPPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\UltraVP</Value>
+    </Setting>
+    <Setting Name="VPTablePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\Visual Pinball\Tables</Value>
+    </Setting>
+    <Setting Name="VPBackglassImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Media\Visual Pinball\Backglass Images</Value>
+    </Setting>
+    <Setting Name="VPTableImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Media\Visual Pinball\Table Images</Value>
+    </Setting>
+    <Setting Name="VPWheelImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Media\Visual Pinball\Wheel Images</Value>
+    </Setting>
+    <Setting Name="FPTablePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\Future Pinball\Tables</Value>
+    </Setting>
+    <Setting Name="FPBackglassImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Media\Future Pinball\Backglass Images</Value>
+    </Setting>
+    <Setting Name="FPTableImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Media\Future Pinball\Table Images</Value>
+    </Setting>
+    <Setting Name="FPWheelImagePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Media\Future Pinball\Wheel Images</Value>
+    </Setting>
+    <Setting Name="FPTableVideoPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Media\Future Pinball\Table Videos</Value>
+    </Setting>
+    <Setting Name="VPTableVideoPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Media\Visual Pinball\Table Videos</Value>
+    </Setting>
+    <Setting Name="FPTableExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.fpt</Value>
+    </Setting>
+    <Setting Name="VPTableExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.vpt</Value>
+    </Setting>
+    <Setting Name="VideoExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.f4v</Value>
+    </Setting>
+    <Setting Name="ImageExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.png</Value>
+    </Setting>
+    <Setting Name="UltraVPExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.uvp</Value>
+    </Setting>
+    <Setting Name="TableVideoRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="FPDBPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Databases\Future Pinball\Future Pinball.xml</Value>
+    </Setting>
+    <Setting Name="VPDBPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Pinball\HyperPin\Databases\Visual Pinball\Visual Pinball.xml</Value>
+    </Setting>
+    <Setting Name="UltraVPRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="TableImageRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="BackglassImageRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="WheelImageRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
